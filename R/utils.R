@@ -10,6 +10,10 @@ remap_unidades <- function(data, uo = NULL, acao = NULL) {
   }
 
   dt[
+    UO_COD == 1511 & ACAO_COD %in% c(4019, 4021, 4020, 4017, 4018), UO_COD := 1551
+  ]
+  
+  dt[
     UO_COD == 1501 & ACAO_COD %in% c(4480, 4481, 4482), UO_COD := 1502
   ]
 
