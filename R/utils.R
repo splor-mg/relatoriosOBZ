@@ -12,11 +12,18 @@ remap_unidades <- function(data, uo = NULL, acao = NULL) {
   dt[
     UO_COD == 1511 & ACAO_COD %in% c(4019, 4021, 4020, 4017, 4018), UO_COD := 1551
   ]
-  
+
+  dt[
+    ANO == 2024 & UO_COD == 1501 & ACAO_COD %in% c(4491, 4492, 4494, 4495, 4496), UO_COD := 1551
+  ]
+
   dt[
     UO_COD == 1501 & ACAO_COD %in% c(4480, 4481, 4482), UO_COD := 1502
   ]
 
+  dt[
+    ANO == 2024 & UO_COD == 1501 & ACAO_COD %in% c(1085, 4465, 4466, 4467), UO_COD := 1502
+  ]
 
   # em 2023 houve transposição das ações da PCMG para a SEPLAG
   dt[
