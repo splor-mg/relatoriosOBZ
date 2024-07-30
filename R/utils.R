@@ -1,4 +1,4 @@
-remap_unidades <- function(data, uo = NULL, acao = NULL) {
+remap_unidades <- function(data, uo = NULL, acao = NULL, ano = NULL) {
   dt <- data.table::copy(data)
 
   if(!is.null(uo)) {
@@ -7,6 +7,10 @@ remap_unidades <- function(data, uo = NULL, acao = NULL) {
 
   if(!is.null(acao)) {
     data.table::setnames(dt, acao, "ACAO_COD")
+  }
+
+  if(!is.null(ano)) {
+    data.table::setnames(dt, ano, "ANO")
   }
 
   dt[
