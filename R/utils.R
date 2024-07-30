@@ -62,5 +62,9 @@ remap_unidades <- function(data, uo = NULL, acao = NULL, ano = NULL) {
     data.table::setnames(dt, "ACAO_COD", acao)
   }
 
+  if(!is.null(ano)) {
+    data.table::setnames(dt, "ANO", ano)
+  }
+
   return(dt[])
 }
