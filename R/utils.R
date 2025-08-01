@@ -21,17 +21,24 @@ remap_unidades <- function(data, uo = NULL, acao = NULL, ano = NULL) {
     ANO == 2024 & UO_COD == 1501 & ACAO_COD %in% c(4491, 4492, 4494, 4495, 4496), UO_COD := 1551
   ]
 
+ # camg
   dt[
-    UO_COD == 1501 & ACAO_COD %in% c(4480, 4481, 4482), UO_COD := 1502
+    ANO %in% c(2021,2022,2023) & UO_COD == 1501 & ACAO_COD %in% c(1054, 4480, 4481, 4482), UO_COD := 1502
   ]
 
   dt[
-    ANO == 2024 & UO_COD == 1501 & ACAO_COD %in% c(1085, 4465, 4466, 4467), UO_COD := 1502
+    ANO %in% c(2024,2025) & UO_COD == 1501 & ACAO_COD %in% c(1085, 4465, 4466, 4467), UO_COD := 1502
   ]
 
-  # em 2023 houve transposição das ações da PCMG para a SEPLAG
+  # em 2023 houve transposição das ações da PCMG para a CET
   dt[
     (UO_COD == 1511 | 1501) & ANO == 2023 & ACAO_COD %in% c(4100, 4105, 4124, 4134, 4135), UO_COD := 1551
+  ]
+
+  # CET 2024 e 2025
+
+  dt[
+    (UO_COD == 1501) & ANO %in% c(2024,2025) & ACAO_COD %in% c(4492, 4494, 4495, 4496), UO_COD := 1551
   ]
 
   dt[
@@ -60,7 +67,7 @@ remap_unidades <- function(data, uo = NULL, acao = NULL, ano = NULL) {
     ]
 
 
- # em 2024 e 2025 a açã 4208 da 1301 SEINFRA corresponde à 2471 ARTEMIG
+ # em 2024 e 2025 a ação 4208 da 1301 SEINFRA corresponde à 2471 ARTEMIG
   dt[
     ANO  %in% c(2024, 2025) & UO_COD == 1301 & ACAO_COD == 4208, UO_COD := 2471
   ]
