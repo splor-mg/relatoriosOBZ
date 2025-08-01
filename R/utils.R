@@ -54,6 +54,18 @@ remap_unidades <- function(data, uo = NULL, acao = NULL, ano = NULL) {
     UO_COD == 1631 & ACAO_COD == 2060, UO_COD := 1491
   ]
 
+# em 2023 ações da 1301 SEINFRA correspondem a 2471 ARTEMIG
+  dt[
+      ANO  == 2023 & UO_COD == 1301 & ACAO_COD %in% c(4136, 4137, 4178), UO_COD := 2471
+    ]
+
+
+ # em 2024 e 2025 a açã 4208 da 1301 SEINFRA corresponde à 2471 ARTEMIG
+  dt[
+    ANO  %in% c(2024, 2025) & UO_COD == 1301 & ACAO_COD == 4208, UO_COD := 2471
+  ]
+
+
   if(!is.null(uo)) {
     data.table::setnames(dt, "UO_COD", uo)
   }
