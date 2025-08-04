@@ -38,7 +38,7 @@ remap_unidades <- function(data, uo = NULL, acao = NULL, ano = NULL) {
   # CET 2024 e 2025
 
   dt[
-    (UO_COD == 1501) & ANO %in% c(2024,2025) & ACAO_COD %in% c(4492, 4494, 4495, 4496), UO_COD := 1551
+    (UO_COD == 1501) & ANO %in% c(2024,2025) & ACAO_COD %in% c(4491, 4492, 4494, 4495, 4496), UO_COD := 1551
   ]
 
   dt[
