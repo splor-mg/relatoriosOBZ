@@ -71,7 +71,10 @@ remap_unidades <- function(data, uo = NULL, acao = NULL, ano = NULL) {
   dt[
     ANO  %in% c(2024, 2025) & UO_COD == 1301 & ACAO_COD == 4208, UO_COD := 2471
   ]
-
+ # 2024 em diante as ações 4111, 2062, 2066, 2070 são consideradaas como sendo da 1631 SEC. GERAL. Conforme minuta de transposição n° 2/2026.
+  dt[
+    ANO  %in% c(2024, 2025, 2026) & ACAO_COD %in% c(4111, 2062, 2066, 2070), UO_COD := 1631
+  ]
 
   if(!is.null(uo)) {
     data.table::setnames(dt, "UO_COD", uo)
