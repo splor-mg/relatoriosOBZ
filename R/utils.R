@@ -27,7 +27,7 @@ remap_unidades <- function(data, uo = NULL, acao = NULL, ano = NULL) {
   ]
 
   dt[
-    ANO %in% c(2024,2025) & UO_COD == 1501 & ACAO_COD %in% c(1085, 4465, 4466, 4467), UO_COD := 1502
+    ANO %in% c(2024,2025, 2026) & UO_COD == 1501 & ACAO_COD %in% c(1085, 4465, 4466, 4467), UO_COD := 1502
   ]
 
   # em 2023 houve transposição das ações da PCMG para a CET
@@ -35,12 +35,12 @@ remap_unidades <- function(data, uo = NULL, acao = NULL, ano = NULL) {
     (UO_COD == 1511 | 1501) & ANO == 2023 & ACAO_COD %in% c(4100, 4105, 4124, 4134, 4135), UO_COD := 1551
   ]
 
-  # CET 2024 e 2025
+  # CET 2024, 2025 e 2026
 
   dt[
-    (UO_COD == 1501) & ANO %in% c(2024,2025) & ACAO_COD %in% c(4491, 4492, 4494, 4495, 4496), UO_COD := 1551
+    (UO_COD == 1501) & ANO %in% c(2024,2025, 2026) & ACAO_COD %in% c(4491, 4492, 4494, 4495, 4496), UO_COD := 2481
   ]
-
+  ######
   dt[
     UO_COD == 1221 & ACAO_COD == 4408, UO_COD := 1721
   ]
@@ -52,11 +52,11 @@ remap_unidades <- function(data, uo = NULL, acao = NULL, ano = NULL) {
   dt[
     UO_COD == 1501 & ACAO_COD == 4140, UO_COD := 1721
   ]
-
+  ####
   dt[
     UO_COD == 1631 & ACAO_COD %in% c(2058, 2059), UO_COD := 1711
   ]
-
+  ####
   dt[
     UO_COD == 1631 & ACAO_COD == 2060, UO_COD := 1491
   ]
